@@ -32,6 +32,7 @@ services:
       DATABASE_URL: mysql+pymysql://app:${DB_PASSWORD:-LocalAnalysis2026}@db:3306/analysis?charset=utf8mb4
       REDIS_URL: redis://redis:6379/0
       JWT_SECRET: ${JWT_SECRET:-pick-paired-development-only}
+      BLIND_SEAL_SECRET: ${BLIND_SEAL_SECRET:-pick-paired-development-only-seal}
       SEED_DEMO: ${SEED_DEMO:-true}
       ARTIFACT_DIR: /artifacts
     ports: ["${BACKEND_PORT:-19205}:8000"]

@@ -10,6 +10,7 @@ from src.utils.serialization import dataset_dict
 router=APIRouter(prefix='/datasets')
 @router.get('')
 def listing(db=Depends(get_db),u=Depends(current_user)):
+    # Blind batches hold only codes and 甲/乙, so they are safe to list next to normal ones.
     return [dataset_dict(d) for d in db.scalars(select(Dataset).order_by(Dataset.id.desc()))]
 @router.post('',status_code=201)
 def create(data:DatasetInput,db=Depends(get_db),u=Depends(can_write)):

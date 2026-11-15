@@ -3,8 +3,17 @@ class Role(str, Enum):
     admin = 'admin'
     analyst = 'analyst'
     viewer = 'viewer'
+    custodian = 'custodian'
 class JobStatus(str, Enum):
     queued = 'queued'
     running = 'running'
     completed = 'completed'
     failed = 'failed'
+class JobMode(str, Enum):
+    normal = 'normal'
+    blind = 'blind'
+    formal = 'formal'
+class TrialStatus(str, Enum):
+    blind = 'blind'
+    unblinding = 'unblinding'
+    unblinded = 'unblinded'

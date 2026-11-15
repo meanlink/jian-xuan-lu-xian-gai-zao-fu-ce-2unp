@@ -6,6 +6,8 @@ class Dataset(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(160), unique=True)
     source: Mapped[str] = mapped_column(String(200), default='manual.json')
+    # business: operator/team/before/after; blind: blind_code/team/arm/seconds
+    kind: Mapped[str] = mapped_column(String(20), default='business')
     records: Mapped[list] = mapped_column(JSON)
     checksum: Mapped[str] = mapped_column(String(64))
     created_at: Mapped[float] = mapped_column(Double)
